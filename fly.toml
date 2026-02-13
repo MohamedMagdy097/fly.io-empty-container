@@ -1,5 +1,5 @@
-app = "my-openclaw"
-primary_region = "iad"
+app = "fly-io-empty-container"
+primary_region = "nrt"
 
 [build]
 dockerfile = "Dockerfile"
@@ -17,7 +17,7 @@ auto_start_machines = true
 min_machines_running = 1
 
 [[vm]]
-size = "shared-cpu-2x"
+size = "performance-1x"
 memory = "2048mb"
 
 [mounts]
