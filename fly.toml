@@ -1,25 +1,23 @@
-app = "fly-io-empty-container"
-primary_region = "nrt"
+# fly.toml app configuration file generated for fly-io-empty-container on 2026-02-13T14:18:48Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'fly-io-empty-container'
+primary_region = 'nrt'
 
 [build]
-dockerfile = "Dockerfile"
-
-[env]
-NODE_ENV = "production"
-OPENCLAW_STATE_DIR = "/data"
-NODE_OPTIONS = "--max-old-space-size=1536"
 
 [http_service]
-internal_port = 3000
-force_https = true
-auto_stop_machines = false
-auto_start_machines = true
-min_machines_running = 1
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
 [[vm]]
-size = "performance-1x"
-memory = "2048mb"
-
-[mounts]
-source = "openclaw_data"
-destination = "/data"
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 2048
